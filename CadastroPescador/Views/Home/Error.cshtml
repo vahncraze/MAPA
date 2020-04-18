@@ -1,0 +1,18 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="card">
+    <h5 class="card-header">Erro</h5>
+    <div class="card-body">
+        <h5 class="card-title">Ocorreu um erro</h5>
+        <p class="card-text">Desculpe, ocorreu um erro.</p>
+        <p>
+            @Model.msg
+        </p>
+        <p>
+            @Model.RequestId
+        </p>
+    </div>
+</div>
