@@ -265,5 +265,33 @@ namespace CadastroPescador.Models
             return subGrupo;
         }
 
+        public string RetornarNome() 
+        {
+            string nome = Nome;
+
+            if (GrupoTrabalho.Equals(GruposTrabalho.SisTainha))
+            {
+                if (Formulario.Equals(FormularioTainha.CercoTraineira) || Formulario.Equals(FormularioTainha.EmalheAnilhado))
+                {
+                    nome =  NomeEmbarcacao;
+                }
+            }
+
+            return nome;
+        }
+
+        public string RetornarLotacao()
+        {
+            string lotacao = Lotacao;
+
+            if (GrupoTrabalho.Equals(GruposTrabalho.SisTainha))
+            {
+                if (Formulario.Equals(FormularioTainha.CercoTraineira) || Formulario.Equals(FormularioTainha.EmalheAnilhado))
+                    lotacao =  TIE;
+            }
+
+            return lotacao;
+        }
+
     }
 }

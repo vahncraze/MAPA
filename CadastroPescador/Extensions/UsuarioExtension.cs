@@ -16,7 +16,7 @@ namespace CadastroPescador.Extensions
             if (!usuarioExternoModel.Equals(null))
             {
 
-                dto.Add(new DocumentoUsuarioDTO(1, usuarioExternoModel.Nome));
+                dto.Add(new DocumentoUsuarioDTO(1, usuarioExternoModel.RetornarNome()));
                 dto.Add(new DocumentoUsuarioDTO(2, usuarioExternoModel.Email));
                 dto.Add(new DocumentoUsuarioDTO(3, usuarioExternoModel.Login));
                 dto.Add(new DocumentoUsuarioDTO(4, usuarioExternoModel.NomeEmbarcacao));
@@ -37,7 +37,7 @@ namespace CadastroPescador.Extensions
                 dto.Add(new DocumentoUsuarioDTO(24, usuarioExternoModel.TipoPessoa));
                 dto.Add(new DocumentoUsuarioDTO(28, usuarioExternoModel.EmContrucao.PegarValor()));
                 dto.Add(new DocumentoUsuarioDTO(30, usuarioExternoModel.RazaoSocial));
-                dto.Add(new DocumentoUsuarioDTO(26, usuarioExternoModel.Lotacao));
+                dto.Add(new DocumentoUsuarioDTO(26, usuarioExternoModel.RetornarLotacao()));
                 dto.Add(new DocumentoUsuarioDTO(25, usuarioExternoModel.Matricula));
                 dto.Add(new DocumentoUsuarioDTO(32, usuarioExternoModel.NumeroSif));
 

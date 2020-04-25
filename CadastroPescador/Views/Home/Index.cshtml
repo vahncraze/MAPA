@@ -75,7 +75,7 @@
                     <input asp-for="CPF" placeholder="CPF" class="form-control" />
                     <span asp-validation-for="CPF" class="text-danger"></span>
                 </div>
-            </div>            
+            </div>
             <div class="col-12 col-md-4">
                 <div class="form-group">
                     <label asp-for="CNPJ" class="control-label"></label>
@@ -90,7 +90,13 @@
                     <span asp-validation-for="RazaoSocial" class="text-danger"></span>
                 </div>
             </div>
-
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label asp-for="NumeroSif" class="control-label"></label>
+                    <input asp-for="NumeroSif" placeholder="Número SIF" class="form-control" />
+                    <span asp-validation-for="NumeroSif" class="text-danger"></span>
+                </div>
+            </div>
         </div>
 
         <div class="row">
@@ -118,7 +124,7 @@
             <div class="col-12 col-md-4">
                 <div class="form-group">
                     <label asp-for="NumeroRGP" class="control-label"></label>
-                    <input asp-for="NumeroRGP" placeholder="Número do RGP" class="form-control" />
+                    <input asp-for="NumeroRGP" placeholder="Número do RGP" class="form-control maiusculo" />
                     <span asp-validation-for="NumeroRGP" class="text-danger"></span>
                 </div>
             </div>
@@ -129,15 +135,6 @@
                     <label asp-for="TIE" class="control-label"></label>
                     <input asp-for="TIE" placeholder="TIE" class="form-control" />
                     <span asp-validation-for="TIE" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <div class="form-group">
-                    <label asp-for="NumeroSif" class="control-label"></label>
-                    <input asp-for="NumeroSif" placeholder="Número SIF" class="form-control" />
-                    <span asp-validation-for="NumeroSif" class="text-danger"></span>
                 </div>
             </div>
         </div>

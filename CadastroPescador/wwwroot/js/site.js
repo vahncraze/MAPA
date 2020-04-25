@@ -120,6 +120,7 @@
     }
 
     function criaUsuario(usuario, form) {
+        console.log(usuario);
         $.ajax({
             url: api + "/v2/usuarios",
             headers: {
@@ -381,6 +382,7 @@
         $("#RazaoSocial").closest("div.col-md-4").css("display", "none");
         $("#CPF").closest("div.col-md-4").css("display", "none");
         $("#CPF").val("");
+        $("#CPF").siblings('label').text('CPF');
         $("#NomeEmbarcacao").closest("div.col-md-4").css("display", "none");
         $("#NumeroRGP").closest("div.col-md-4").css("display", "none");
         $("#NumeroRGP").val("");
@@ -465,6 +467,7 @@
     }
 
     function Mascaras() {
+        $("#NumeroRGP").mask('AA00000000');
         $("#CPF").mask('000.000.000-00', { reverse: true });
         $("#CEP").mask('00000-000', { reverse: true });
         $("#CNPJ").mask('00.000.000/0000-00', { reverse: true });
@@ -552,6 +555,10 @@
         this.value = this.value.replace(/[^a-zA-Z. ]*/g, '');
     });
 
+    $(".maiusculo").focusout(function () {
+        this.value = this.value.toUpperCase();
+    });
+
     $("#salvar").click(function (e) {
         e.preventDefault();
 
@@ -633,7 +640,10 @@
             $("#NumeroRGP").val("");
             $("#TIE").closest("div.col-md-4").css("display", "none");
             $("#TIE").val("");
+            $("#TipoPessoa").closest("div.col-md-4").css("display", "none");
+            $("#TipoPessoa").val("");
             $("#CPF").closest("div.col-md-4").css("display", "block");
+            $("#CPF").siblings('label').text('CPF do responsável');
             $("#CPF").attr("placeholder", "CPF do Responsável");
             $("#NumeroSif").closest("div.col-md-4").css("display", "block");
         }
