@@ -71,7 +71,7 @@ namespace CadastroPescador.Services
             var obs = $"Lotação: {usuario.Lotacao} | Matricula: {usuario.Matricula}";
             var data = JsonConvert.SerializeObject(new
             {
-                Nome = usuario.Nome,
+                Nome = usuario.RetornarNome(),
                 Login = usuario.Login,
                 Email = usuario.Email,
                 CpfCnpj = usuario.RetornaCpfCnpj(),

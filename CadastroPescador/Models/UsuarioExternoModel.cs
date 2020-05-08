@@ -12,25 +12,7 @@ namespace CadastroPescador.Models
 
         #region Dados de Usuario
         [Required(ErrorMessage = "Campo Obrigatório")]
-        public string Nome { 
-            get 
-            {
-
-                if (GrupoTrabalho.Equals(GruposTrabalho.SisTainha))
-                {
-                    if (Formulario.Equals(FormularioTainha.CercoTraineira) || Formulario.Equals(FormularioTainha.EmalheAnilhado))
-                    {
-                        return NomeEmbarcacao;
-                    }
-                    if (Formulario.Equals(FormularioTainha.EntradaEmpresaPesqueira))
-                    {
-                        return RazaoSocial;
-                    }
-                }
-
-                return Nome;
-            } 
-            private set { } }
+        public string Nome { get; set; }
         public string Login
         {
             get

@@ -203,7 +203,7 @@ namespace CadastroPescador.Controllers
             int[] numArray = new int[1] { 25 };
             string str = JsonConvert.SerializeObject(new
             {
-                Nome = usuario.Nome,
+                Nome = usuario.RetornarNome(),
                 Login = usuario.Login,
                 Email = usuario.Email,
                 CpfCnpj = usuario.RetornaCpfCnpj(),
