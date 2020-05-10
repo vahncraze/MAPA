@@ -135,6 +135,7 @@ namespace CadastroPescador.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Matricula { get; set; }
         [Display(Name = "Número do RGP")]
+        [Required(ErrorMessage = "Campo Obrigatório")]
         public string NumeroRGP { get; set; }
         [Display(Name = "Nome da Embarcação")]
         [Required(ErrorMessage = "Campo Obrigatório")]
