@@ -34,7 +34,21 @@ namespace CadastroPescador.Controllers
         public IActionResult Index()
         {
 
-            ViewBag.GrupoLista = GerarLista();
+            List<SelectListItem> listaGrupo = GerarLista();
+            string habilitarPescadorAmador = _configuration["HabilitarPescadorAmador"];
+            if (habilitarPescadorAmador == "false")
+            {
+                SelectListItem remover = new SelectListItem();
+                foreach (var item in listaGrupo)
+                {
+                    if (item.Value == "8")
+                    {
+                        remover = item;
+                    }
+                }
+                listaGrupo.Remove(remover);
+            }
+            ViewBag.GrupoLista = listaGrupo;
             ViewBag.EmConstrucaoLista = GerarListaSimNao();
             ViewBag.TipoPessaoLista = GerarListaTipoPessoa();
             ViewBag.Formulario = GerarListaFormulario();
@@ -70,16 +84,16 @@ namespace CadastroPescador.Controllers
                     return View("Sucesso", usuario);
                 }
 
-                return View("ErrorGeneric");               
+                return View("ErrorGeneric");
             }
             catch (Exception ex)
             {
                 _ecm.SalvarLog(ex.Message);
-                return RedirectToAction("ErrorApi", new { msgEx = ex.Message });                
+                return RedirectToAction("ErrorApi", new { msgEx = ex.Message });
             }
-            
 
-        }        
+
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
