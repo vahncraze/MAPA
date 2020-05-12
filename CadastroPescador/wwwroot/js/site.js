@@ -468,6 +468,7 @@
 
     function Mascaras() {
         $("#NumeroRGP").mask('AA00000000');
+        $("#TIE").mask('0000000000');
         $("#CPF").mask('000.000.000-00', { reverse: true });
         $("#CEP").mask('00000-000', { reverse: true });
         $("#CNPJ").mask('00.000.000/0000-00', { reverse: true });
@@ -774,7 +775,7 @@
                 var listaRgp2020 = data;
                 if (listaRgp2020.indexOf($("#NumeroRGP").val()) == -1) {
                     $("#NumeroRGP").val('');
-                    $('span[data-valmsg-for*="NumeroRGP"]').append('<span id="RGP-error" class="">RGP Inválido</span>');
+                    $('span[data-valmsg-for*="NumeroRGP"]').append('<span id="RGP-error" class="">RGP não é válido para a modalidade selecionada.</span>');
                 }
                 else {
                     $("#NumeroRGP").removeClass("input-validation-error");
