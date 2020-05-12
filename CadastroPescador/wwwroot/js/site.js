@@ -650,6 +650,7 @@
         }
 
         MoverDivEmail(true);
+        $("#NumeroRGP").trigger("focusout");
     });
 
 
@@ -770,19 +771,33 @@
     });
 
     $("#NumeroRGP").focusout(function () {
-        $.get(urlBase + "/Home/RetornarRgp2020",
-            function (data) {
-                var listaRgp2020 = data;
-                if (listaRgp2020.indexOf($("#NumeroRGP").val()) == -1) {
-                    $("#NumeroRGP").val('');
-                    $('span[data-valmsg-for*="NumeroRGP"]').append('<span id="RGP-error" class="">RGP não é válido para a modalidade selecionada.</span>');
-                }
-                else {
-                    $("#NumeroRGP").removeClass("input-validation-error");
-                }
-            }).done(function () {
-            }).fail(function () {
-            });
+        if ($("#NumeroRGP").val().length != "") {
+            var endpointLista = "";
+            if ($("#Formulario").val() == "1") {
+                endpointLista = "RetornarRgpCerco2020";
+            }
+            if ($("#Formulario").val() == "2") {
+                endpointLista = "RetornarRgpEmalhe2020";
+            }
+
+            $("#RGP-error").remove();
+            $.get(urlBase + "/Home/" + endpointLista,
+                function (data) {
+                    var listaRgp2020 = data;
+                    if (listaRgp2020.indexOf($("#NumeroRGP").val()) == -1) {
+                        $("#NumeroRGP").val('');
+                        $('span[data-valmsg-for*="NumeroRGP"]').append('<span id="RGP-error" class="">RGP não é válido para a modalidade selecionada.</span>');
+                    }
+                    else {
+                        $("#NumeroRGP").removeClass("input-validation-error");
+                    }
+                }).done(function () {
+                }).fail(function () {
+                });
+        }
+        else {
+            $("#NumeroRGP").val('');
+        }
     });
 
 });

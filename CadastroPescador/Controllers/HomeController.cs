@@ -252,10 +252,16 @@ namespace CadastroPescador.Controllers
         }
 
         [HttpGet]
-        public IActionResult RetornarRgp2020()
+        public IActionResult RetornarRgpEmalhe2020()
         {
-            string listaRgp2020 = _configuration["ListaRgp2020"];
-            return Ok(listaRgp2020.Split(','));
+            string listaRgpEmalhe2020 = _configuration["ListaRgpEmalhe2020"];
+            return Ok(listaRgpEmalhe2020.Split(','));
+        }
+        [HttpGet]
+        public IActionResult RetornarRgpCerco2020()
+        {
+            string listaRgpCerco2020 = _configuration["ListaRgpCerco2020"];
+            return Ok(listaRgpCerco2020.Split(','));
         }
     }
 }
