@@ -184,6 +184,26 @@
         });
 
     }
+    function notificaTIE(tie) {
+        setTimeout(function () {
+            if ($(tie).val().length != 10) {
+                    $("#TIE-error").remove();
+                    $("#TIE").removeClass("valid").addClass("input-validation-error");
+                    $("#TIE").attr('aria-describedby="TIE-error"');
+                    $("#TIE").attr('aria-invalid="true"');
+                    $('span[data-valmsg-for*="TIE"]').append('<span id="TIE-error" class="">TIE Inválido</span>');
+                    $("#salvar").hide();
+                    $("#notifiqueTIE").text("Por favor confira o campo TIE: TIE inválido.").show();
+                tieValido = false;
+                $("#TIE").val('');
+            }
+            else {
+                $("#TIE").removeClass("input-validation-error");
+                $("#notifiqueTIE").text("").hide();
+                tieValido = true;
+            }
+        }, 300);
+    }
 
     function notificaCPF(cpf) {
         setTimeout(function () {
@@ -518,6 +538,10 @@
         });
 
     }
+
+    $("#TIE").focusout(function () {
+        notificaTIE($("#TIE"));
+    });
 
     $("#CPF").focus(function () {
         var cpf = $(this).val().replace(".", "").replace(".", "").replace("-", "");
