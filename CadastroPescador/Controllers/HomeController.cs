@@ -132,6 +132,8 @@ namespace CadastroPescador.Controllers
                     grupo.Text = "Pescador Amador";
                 if (item == 9)
                     grupo.Text = "SisTainha";
+                if (item == 10)
+                    grupo.Text = "Mapa de Bordo Online";
 
                 list.Add(grupo);
             }

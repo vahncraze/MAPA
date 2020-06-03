@@ -15,7 +15,8 @@ namespace CadastroPescador.Enums
         EntidadeValidadora = 6,
         EmpresaRastreadora = 7,
         PescadorAmador = 8,
-        SisTainha = 9
+        SisTainha = 9,
+        MapaBordoOnline = 10
     }
     public static class GruposTrabalhoExtension
     {
@@ -42,6 +43,8 @@ namespace CadastroPescador.Enums
                     return "PESCADOR-AMADOR";
                 case GruposTrabalho.SisTainha:
                     return "SIS-TAINHA";
+                case GruposTrabalho.MapaBordoOnline:
+                    return "MAPA-BORDO-ONLINE";
                 default:
                     return "";
 

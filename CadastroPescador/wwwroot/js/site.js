@@ -474,6 +474,14 @@
         $("#Formulario").closest("div.col-md-4").css("display", "block");
         $("#Formulario").trigger('change');
     };
+    function AtivaCamposMapaBordo() {
+        $("#NomeEmbarcacao").closest("div.col-md-4").css("display", "block");
+        //$("#CPF").closest("div.col-md-4").css("display", "block");
+        $("#NumeroRGP").closest("div.col-md-4").css("display", "block");
+        $("#TIE").closest("div.col-md-4").css("display", "block");
+        $("#TipoPessoa").closest("div.col-md-4").css("display", "block");
+
+    }
 
     function MoverDivEmail(mover)
     {
@@ -756,6 +764,15 @@
             $("#NomeEndereco").text("Endereço do proprietário");
             AtivaCamposSisTainha();
         }
+        if (selected == "10") {
+            $("#identificacao").text("Responsável pela Embarcação");
+            $("#identificacao").attr("placeholder", "Nome Completo do Responsável");
+            $("#Email").attr("placeholder", "E-mail do Responsável");
+            $("#Contato").attr("placeholder", "Telefone do Responsável");
+            $("#NomeEndereco").attr("placeholder", "Endereço Completo do Responsável");
+            $("#NomeEndereco").text("Endereço do proprietário");
+            AtivaCamposMapaBordo();
+        }
         if (selected == "8") {
 
         }
@@ -795,32 +812,37 @@
     });
 
     $("#NumeroRGP").focusout(function () {
-        if ($("#NumeroRGP").val().length != "") {
-            var endpointLista = "";
-            if ($("#Formulario").val() == "1") {
-                endpointLista = "RetornarRgpCerco2020";
-            }
-            if ($("#Formulario").val() == "2") {
-                endpointLista = "RetornarRgpEmalhe2020";
-            }
+        if ($("#NumeroRGP").val().length == "10") {//Nao aceita rgp com qtde de caracteres diferente de 10
+            if ($("#GrupoTrabalho").val() != "10") {
+                var endpointLista = "";
+                if ($("#Formulario").val() == "1") {
+                    endpointLista = "RetornarRgpCerco2020";
+                }
+                if ($("#Formulario").val() == "2") {
+                    endpointLista = "RetornarRgpEmalhe2020";
+                }
 
-            $("#RGP-error").remove();
-            $.get(urlBase + "/Home/" + endpointLista,
-                function (data) {
-                    var listaRgp2020 = data;
-                    if (listaRgp2020.indexOf($("#NumeroRGP").val()) == -1) {
-                        $("#NumeroRGP").val('');
-                        $('span[data-valmsg-for*="NumeroRGP"]').append('<span id="RGP-error" class="">RGP não é válido para a modalidade selecionada.</span>');
-                    }
-                    else {
-                        $("#NumeroRGP").removeClass("input-validation-error");
-                    }
-                }).done(function () {
-                }).fail(function () {
-                });
+                $("#RGP-error").remove();
+                $.get(urlBase + "/Home/" + endpointLista,
+                    function (data) {
+                        var listaRgp2020 = data;
+                        if (listaRgp2020.indexOf($("#NumeroRGP").val()) == -1) {
+                            $("#NumeroRGP").val('');
+                            $('span[data-valmsg-for*="NumeroRGP"]').append('<span id="RGP-error" class="">RGP não é válido para a modalidade selecionada.</span>');
+                        }
+                        else {
+                            $("#NumeroRGP").removeClass("input-validation-error");
+                        }
+                    }).done(function () {
+                    }).fail(function () {
+                    });
+            }
         }
         else {
             $("#NumeroRGP").val('');
+            setTimeout(function () {
+                $('span[data-valmsg-for*="NumeroRGP"]').append('<span id="RGP-error" class="">RGP deve ser no formato AA00000000.</span>');
+            }, 10);
         }
     });
 
