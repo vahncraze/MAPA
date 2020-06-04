@@ -61,6 +61,10 @@ namespace CadastroPescador.Models
                     if(Formulario == FormularioTainha.EntradaEmpresaPesqueira)
                         return "ST" + NumeroSif;
                 }
+                if (GrupoTrabalho.Equals(GruposTrabalho.MapaBordoOnline)) 
+                {
+                    return "MB" + TIE;
+                }
                 return null;
             }
             private set
@@ -248,6 +252,10 @@ namespace CadastroPescador.Models
 
                 if (Formulario == FormularioTainha.EntradaEmpresaPesqueira)
                     observacao = CPF;
+            }
+            if (GrupoTrabalho.Equals(GruposTrabalho.MapaBordoOnline))
+            {
+                observacao = NumeroRGP;
             }
 
             return observacao;
