@@ -133,7 +133,7 @@ namespace CadastroPescador.Controllers
                 if (item == 9)
                     grupo.Text = "SisTainha";
                 if (item == 10)
-                    grupo.Text = "Mapa de Bordo Online";
+                    grupo.Text = "Mapa de Bordo Digital";
 
                 list.Add(grupo);
             }

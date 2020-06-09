@@ -200,6 +200,7 @@
             else {
                 $("#TIE").removeClass("input-validation-error");
                 $("#notifiqueTIE").text("").hide();
+                $("#salvar").show();
                 tieValido = true;
             }
         }, 300);
