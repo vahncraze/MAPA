@@ -289,6 +289,10 @@ namespace CadastroPescador.Models
                     nome = RazaoSocial;
                 }
             }
+            if (GrupoTrabalho.Equals(GruposTrabalho.MapaBordoOnline))
+            {
+                nome = NomeEmbarcacao;
+            }
 
             return nome;
         }
