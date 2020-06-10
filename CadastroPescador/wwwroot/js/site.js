@@ -198,6 +198,7 @@
                 $("#TIE").val('');
             }
             else {
+                $("#TIE-error").remove();
                 $("#TIE").removeClass("input-validation-error");
                 $("#notifiqueTIE").text("").hide();
                 $("#salvar").show();
